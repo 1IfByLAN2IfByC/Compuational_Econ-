@@ -4,10 +4,12 @@
 # Created by: Michael Lee
 # 			  University of Texas at Austin
 
-import numpy 
-import scipy as sci 
+
+from numpy import *
+from scipy.optimize import minimize
 
 class Growth:
+
 
 # matrix defined as follows: 
 #[ Consumption, C;
@@ -63,11 +65,11 @@ class Growth:
 		return deriv 
 		
 	
-	def main(self):
-		opt = zeros((4, N_periods))
+	def run(self):
+		opt = zeros((4, self.N_periods))
 				
 		# define initial conditions
-		K[0,0] = 7.0
+		opt[0,0] = 7.0
 		
 		# create a dictionary with the constraints 
 		constraint = ({
@@ -84,5 +86,4 @@ class Growth:
 		
 		
 growth = Growth()
-growth.main
-
+growth.run()
