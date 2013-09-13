@@ -42,9 +42,10 @@ class Growth:
 		return P 
 
 
-	def utility(self, opt):
-		for i in range(0, self.N_periods):
-			opt[3, i] = self.beta^i * (1/ (1-self.tau))*opt[0, i]^(1-self.tau)
+	def utility(self, opt, sign=1.0):
+		for i in range(1, self.N_periods-1):
+			opt[2, i] = opt[2, i-1] + self.theta * opt[2, i-1]^self.alpha - opt[0, i-1]
+			opt[3, i] = self.beta^i * (1/ (1-self.tau))*opt[2, i]^(1-self.tau)
 		
 		goal = sum(opt[3,:]) 
 		
@@ -54,7 +55,7 @@ class Growth:
 		dUdC = zeros((1, self.N_periods))
 		dUdt = zeros((1, self.N_periods))
 		
-		for i in range(0, self.N_periods):
+		for i in range(0, self.N_periods-1):
 			dUdC[0,i] = sign*( (1-self.tau) * self.beta^i * (1/(1-self.tau)) * opt[0, i]^
 			(1-self.tau-1))
 			
@@ -81,7 +82,7 @@ class Growth:
 		# maximize consumption subject to the condition 
 		# K_f <= K_(f-1)
 		
-		result = minimize(self.utility, [0.0, 0.0], args=(-1.0,), jac=utility_deriv,
+		result = minimize(self.utility, opt, args=(-1.0,), jac=self.utility_deriv,
 		constraints=constraint, method='SLSQP', options={'disp':True})
 		
 		
