@@ -1,27 +1,37 @@
 from pulp import *
+import numpy as np
 
 # create list of all supply nodes
 
 Suppliers= ['Sea', 'SD']
 
 # create a dict with the inventories of each warehouse
-supply = {'Sea': 1000,
-          'SD' : 4000}
+supply = {'Sea': 350,
+          'SD' : 600}
           
 Destinations = ['Chi', 'NY', 'Top']
 
-demand = {'Chi': 500,
-          'NY' : 1000,
-          'Top': 200}
+demand = {'Chi': 325,
+          'NY' : 300,
+          'Top': 275}
           
-# create a cost matrix
-costs = [ #Destinations
+# create a distance array
+dist = np.array( #Destinations
         #Chi    NY  Top
-        [1, 5, 5],#Sea
-        [1, 2, 3]#SD
-        ]
-     
+        [(1.7, 2.5, 1.8),#Sea
+        (1.8, 2.5, 1.4)#SD
+        ])
 
+#create a cost/mile array
+costMile = np.array([ #Destinations
+        #Chi    NY  Top
+        (90, 90, 90),#Sea
+        (90, 90, 90)#SD
+        ])
+
+# create a cost matrix and convert to a list
+costs = costMile * dist
+costs.tolist()
 
 costs = makeDict([Suppliers, Destinations], costs, 0)
 # setup the cost minimization problem
