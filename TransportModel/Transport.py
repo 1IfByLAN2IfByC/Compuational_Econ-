@@ -1,14 +1,30 @@
 from pulp import *
 import numpy as np
 
-def equilibrium(supply, demand, sellPrice, Lease):
+def main():
+
+  #assume a MPC
+  MPC = .5
+  depreciation = .3
+
+  # create a dict with the inventories of each warehouse
+  const( supply_0 = {'Sea':     1200,
+            'SD' :     600,
+            'Warehouse': 0})
+
+  const( demand_0 = {'Chi':   325,
+          'NY' :     300,
+          'Top':     275,
+          'Warehouse': 0})
+          
+  def equilibrium(supply, demand, sellPrice):
     # create list of all supply nodes
-  Suppliers = ['Sea', 'SD', 'Warehouse']
+    Suppliers = ['Sea', 'SD', 'Warehouse']
   
     # create a dict of all demand nodes      
-  Destinations = ['Chi', 'NY', 'Top', 'Warehouse', 'Albuquerque', 'Boston']
+    Destinations = ['Chi', 'NY', 'Top', 'Warehouse']
 
-  excess = sum(supply.values()) - sum(demand.values()) 
+    excess = sum(supply.values()) - sum(demand.values()) 
     #positve excess values = extra supply, negative = extra demand
 
   # create a dict with the inventories of each warehouse
@@ -49,10 +65,10 @@ def equilibrium(supply, demand, sellPrice, Lease):
 
   ## create a time array 
   dist = np.array( #Destinations
-          # Chi    NY  Top  warehouse   Alb.  Bos
-          [(29, 41, 26, 10, 21, 44),#Sea
-           (29, 40, 22, 10, 11, 44),#SD
-           ( 6,  6,  6, 6,  6,  6) #Warehouse
+          # Chi    NY  Top  Warehouse
+          [(29, 41, 26, 0),#Sea
+           (29, 40, 22, 0),#SD
+           ( 0,  0,  0, 0) #Warehouse
           ])
 
   ##create a cost/mile array
@@ -65,10 +81,10 @@ def equilibrium(supply, demand, sellPrice, Lease):
   #        
   # assuming hourly wage is 22USD        
   costMile = np.array([ #Destinations
-          #Chi  NY  Top  War Al  Bos
-          (22,  22, 22,  22, 22, 22),#Sea
-          (22,  22, 22,  22, 22, 22),#SD
-          (22,  22, 22,  22, 22, 22) #Warehouse
+          #Chi  NY  Top  Warehouse
+          (22,  22, 22,  22),#Sea
+          (22,  22, 22,  22),#SD
+          (22,  22, 22,  22) #Warehouse
           ])
 
   # specifiy how much each transport container can hold
@@ -107,10 +123,10 @@ def equilibrium(supply, demand, sellPrice, Lease):
 
   # constraints functions
   for S in Suppliers:
-    prob += lpSum([route_var[S][D] for D in Destinations]) <= supply[S]
+  	prob += lpSum([route_var[S][D] for D in Destinations]) <= supply[S]
   "sum_of_products_out_of_suppliers_%s" %S
   for D in Destinations:
-    prob += lpSum([route_var[S][D] for S in Suppliers]) >= demand[D]
+  	prob += lpSum([route_var[S][D] for S in Suppliers]) >= demand[D]
   "sum_of_products_into_destinations_%s" %D
 
   prob.writeLP('Transport_problem.lp')
@@ -122,41 +138,49 @@ def equilibrium(supply, demand, sellPrice, Lease):
     print(v.name, ' = ', v.varValue)
     
   # calculate profit 
-  profit = sum(rev.values()) - sum(lab.values()) - value(prob.objective) - Lease
+  profit = sum(rev.values()) - sum(lab.values()) - value(prob.objective)
 
   print( 'total cost of transport = ', value(prob.objective))
+  print(profit)
 
   return profit
 
-def main():
 
-  #assume a MPC
-  MPC = .5
-  depreciation = .3
-  Lease = 100
 
-  # create a dict with the inventories of each warehouse
-  supply_0 = {'Sea':     1200,
-            'SD' :     800,
-            'Warehouse': 0}
-
-  demand_0 = {'Chi':   325,
-          'NY' :     300,
-          'Top':     275,
-          'Warehouse': 0,
-          'Albuquerque': 100,
-          'Boston': 150}
-
-    # create sell price array
-  sellPrice_0 = {'Chi': 10,
+  # create sell price array
+  const( sellPrice_0 = {'Chi': 10,
                'NY': 14,
                'Top': 6,
-               'Warehouse': ((10+14+6)/3)* depreciation,
-               'Albuquerque': 8,
-               'Boston': 13}
+               'Warehouse': ((10+14+6)/3)* depreciation})   
 
+  const( profit_0 = float(equilibrium(supply_0, demand_0, sellPrice_0)) )
 
-  prof = equilibrium(supply_0, demand_0, sellPrice_0, Lease)
-  print('Profit is equal to: ' + str(prof))
+  const( Q_max = float(np.tan(MPC)) * (sellPrice_0['NY'] - sellPrice_0['Warehouse']))
+
+  # while profit > abs(profit_0 - 1):
+  #   sellPrice['']
+  #   demand['NY'] = demand['NY'] + 1
+  #   demand['Warehouse'] = demand['Warehouse'] - 1
+  
+  supply = {'Sea':     1200,
+            'SD' :     600,
+            'Warehouse': 0}
+
+  demand = {'Chi':   325,
+          'NY' :     300,
+          'Top':     275,
+          'Warehouse': 0}
+
+   # create sell price array
+  sellPrice = {'Chi': 10,
+               'NY': 14,
+               'Top': 6,
+               'Warehouse': ((10+14+6)/3)* depreciation}
+
+  demand['Warehouse'] = demand['Warehouse'] - abs(demand['NY'] - Q_max)
+  demand['NY'] = Q_max
+  sellPrice['NY'] = sellPrice['Warehouse']
+
+  profit_max = equilibrium(supply_0, demand, sellPrice )
 
 
