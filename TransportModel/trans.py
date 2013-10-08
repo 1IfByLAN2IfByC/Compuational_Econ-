@@ -1,4 +1,4 @@
-from pulp import *
+nfrom pulp import *
 import numpy as np
 
 # create list of all supply nodes
@@ -10,8 +10,8 @@ supply = {'Sea': 350,
           'SD' : 600}
           
 Destinations = ['Chi', 'NY', 'Top']
-
-demand = {'Chi': 325,
+demand
+ = {'Chi': 325,
           'NY' : 300,
           'Top': 275}
           
