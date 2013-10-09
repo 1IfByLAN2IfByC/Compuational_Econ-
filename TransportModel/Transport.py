@@ -8,14 +8,14 @@ def main():
   depreciation = .3
 
   # create a dict with the inventories of each warehouse
-  const( supply_0 = {'Sea':     1200,
+  supply_0 = {'Sea':     1200,
             'SD' :     600,
-            'Warehouse': 0})
+            'Warehouse': 0}
 
-  const( demand_0 = {'Chi':   325,
+  demand_0 = {'Chi':   325,
           'NY' :     300,
           'Top':     275,
-          'Warehouse': 0})
+          'Warehouse': 0}
           
   def equilibrium(supply, demand, sellPrice):
     # create list of all supply nodes
@@ -148,14 +148,14 @@ def main():
 
 
   # create sell price array
-  const( sellPrice_0 = {'Chi': 10,
+  sellPrice_0 = {'Chi': 10,
                'NY': 14,
                'Top': 6,
-               'Warehouse': ((10+14+6)/3)* depreciation})   
+               'Warehouse': ((10+14+6)/3)* depreciation} 
 
-  const( profit_0 = float(equilibrium(supply_0, demand_0, sellPrice_0)) )
+  profit_0 = float(equilibrium(supply_0, demand_0, sellPrice_0)) 
 
-  const( Q_max = float(np.tan(MPC)) * (sellPrice_0['NY'] - sellPrice_0['Warehouse']))
+  Q_max = float(np.tan(MPC)) * (sellPrice_0['NY'] - sellPrice_0['Warehouse'])
 
   # while profit > abs(profit_0 - 1):
   #   sellPrice['']
