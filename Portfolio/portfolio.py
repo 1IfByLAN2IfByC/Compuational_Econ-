@@ -2,7 +2,8 @@ from pandas.io.data import DataReader, DataFrame
 from numpy import *
 import datetime
 import matplotlib.pylab as plt
-from scipy import optimize
+import statsmodels.api as sm
+# from scipy import optimize
 
 # define method for pulling financial data from yahoo!
 def Stock_Close(Ticker, YYYY, m, dd):
@@ -12,7 +13,7 @@ def Stock_Close(Ticker, YYYY, m, dd):
 
 	return close
 
-def Stock_beta(Ticker, YYYY, m dd):
+def Stock_beta(Ticker, YYYY, m, dd):
 	start_date = datetime.datetime(YYYY, m, dd)
 	pull = DataReader(Ticker, "yahoo", start = start_date) 
 	beta = pull["beta"]
@@ -29,9 +30,56 @@ def Econ_env(YYYY, m, dd):
 
 	return Array
 
+def Stock_stats(dataFrame, weights, assets, lam):
+	[m,n] = shape(dataFrame)
+	std = dataFrame.std()
+	corr = dataFrame.corr()
+	STD = [] 
+	buyin = []
+	current = []
+	EWMA = {}
+
+	# transform the dataFrame index to a series so regression will
+	# work
+
+	for ass in assets:
+		buyin.append(dataFrame[ass][0] * weights[ass] )
+		STD.append([std[ass] * weights[ass]])
+		current.append([dataFrame[ass][m-1] * weights[ass]])
+
+	STD = sum(STD)
+	profit = sum(current) - sum(buyin)
+	
+	# calculate EWMA as described by Minkah
+	for ass in assets:
+		temp= []
+		for i  in range( (len(dataFrame.index)-1), 0, -1):
+			temp.append((pow(dataFrame[ass][i] - dataFrame[ass].mean(), 2) * pow(lam, i)))
+
+		EWMA[ass] = sqrt((1-lam) * sum(temp))
+
+		# sum the squared difference and compute EWMA for each asset
+		# EWMA[j] = sqrt( (1-lam) * sum(ewma[ass].values()))
+
+
+	return profit, STD, EWMA
+
+def DirichletDistro(num, sum):
+	# creates a Dirchlet distribtion (D) with characteristics
+	# sum(D) = sum and len(D) = 1 w/all numbers being 
+	# pseudorandom
+
+	D = random.dirichlet(ones(num), size=sum)
+	return list(D.reshape(-1)) 		#convert to list
+
 def main():
 	# define the desired portfolio characteristics
 	std_max = 100	# maximum standard deviation 
+	MAX_ITERS = 100 	# max number of iterations
+	lam = .94  		# exponential decay number 
+
+	assets = (['GOOGLE', 'APPLE', 'CAT', 'SPDR_GOLD', 'OIL',
+	 'NATURAL_GAS', 'USD', 'GOLDMANSACHS', 'DOMINION'])
 
 	# Pull data from Yahoo! Finance 
 	GOOG= Stock_Close('GOOG', 2010, 1, 1)
@@ -48,48 +96,50 @@ def main():
 	USD = Stock_Close('UUP', 2010, 1, 1)
 
 	# create a dataframe housing the above
-	X = DataFrame({'GOOGLE':GOOG, 'APPLE':AAPL, 'CAT':CAT, 'SPDR GOLD':GOLD,
-	 'OIL':OIL, 'Natural Gas':GAS, 'Dollar Index':USD, 'GoldmanSachs': GS, 'Dominion': DOM})
-	
-	[m,n] = shape(X)
+	X = DataFrame({'GOOGLE':GOOG, 'APPLE':AAPL, 'CAT':CAT, 'SPDR_GOLD':GOLD,
+	 'OIL':OIL, 'NATURAL_GAS':GAS, 'USD':USD, 'GOLDMANSACHS': GS, 'DOMINION':DOM})
 
-	# define weights of each assest held
-	weights = {'GOOGLE':.2,
-			    'APPLE':.1, 
-			     'CAT':.1, 
-		   'SPDR GOLD':.05,
-	 	     	  'OIL':.1, 
-	      'Natural Gas':.1, 
-	     'Dollar Index':.05,
-	     	 'Dominion':.1,
-	     'GoldmanSachs':.2}
-	
-	# check to make sure sum weights = 1
-	if int(sum(weights.values())) == 1:
+	# define weights of each asset held
+	# weights = {'GOOGLE':.2,
+	# 		    'APPLE':.1, 
+	# 		     'CAT':.1, 
+	# 	   'SPDR GOLD':.05,
+	#  	     	  'OIL':.1, 
+	#       'NATURAL GAS':.1, 
+	#      		 'USD':.05,
+	#      	 'DOMINION':.1,
+	#      'GOLDMANSACHS':.2}
 
-		# run some statistics
-		std = X.std()
-		corr = X.corr()
-		STD = [] 
-		buyin = []
-		current = []
+	best = zeros(((2+len(assets)), MAX_ITERS))
 
-		for keys in weights:
-			buyin.append(X[keys][0])
-			STD.append([std[keys] * weights[keys]])
-			current.append([X[keys][m-1]])
+	for i in range(1, MAX_ITERS):
+		# check to make sure sum weights = 1
+		numWeight = DirichletDistro(len(assets),1)
+		
+		if int(sum(numWeight)) < 1.01:
+			#create dictionary of weights for each of the assets
+			weights = dict(zip(assets, numWeight))
 
-		STD = sum(STD)
-		profit = sum(current) - sum(buyin)
+			profit, STD, EWMA = Stock_stats(X, weights, assets, lam)
 
-		print(corr)
-		X.plot()
-		plt.show()		
-	else:
-		print('Sum of weights does not equal 1')
+			# store trial profit, stdev in column of best
+			best[0:2, i] = [ profit, STD]
+			best[2::, i] = numWeight
+
+		else:
+			print('Sum of weights does not equal 1')
+
+	# now that we have the monte carlo simulation setup, eliminate
+	# all trials that do not meet critera
+	for i in range(1, MAX_ITERS):
+		if best[1, i] >std_max:
+			best[:, i] = zeros(( (2+len(assets)), 1)) # drop the trial 
+			# add more critera here...
+		else:
+			pass
 
 
-	
+	print( max(sum(best, 0)) ) 		# print the maximum portfolio
+	return X, weights, STD, profit, numWeight, best, EWMA
 
-	return X, weights, STD, corr, buyin, current
 
