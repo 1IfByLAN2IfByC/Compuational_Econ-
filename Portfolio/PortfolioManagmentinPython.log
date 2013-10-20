@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 OCT 2013 12:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  20 OCT 2013 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -155,18 +155,18 @@ LaTeX Info: Redefining \] on input line 2666.
 (./PortfolioManagmentinPython.aux)
 \openout1 = `PortfolioManagmentinPython.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -262,56 +262,109 @@ e
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 97.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
+[2] <Figures/EU_fn.png, id=14, 778.91pt x 565.11125pt>
+File: Figures/EU_fn.png Graphic file (type png)
+ <use Figures/EU_fn.png>
+Package pdftex.def Info: Figures/EU_fn.png used on input line 46.
+(pdftex.def)             Requested size: 311.55849pt x 226.04048pt.
 
-<Figures/ProfitvVar.png, id=23, 617.30624pt x 481.8pt>
-File: Figures/ProfitvVar.png Graphic file (type png)
+[3 <./Figures/EU_fn.png>] [4]
+<Figures/Efficient_Frontier.png, id=26, 408.77719pt x 280.04625pt>
+File: Figures/Efficient_Frontier.png Graphic file (type png)
 
-<use Figures/ProfitvVar.png>
-Package pdftex.def Info: Figures/ProfitvVar.png used on input line 109.
-(pdftex.def)             Requested size: 308.65236pt x 240.8994pt.
+<use Figures/Efficient_Frontier.png>
+Package pdftex.def Info: Figures/Efficient_Frontier.png used on input line 77.
+(pdftex.def)             Requested size: 306.58214pt x 210.03415pt.
+ [5 <./Figures/Efficient_Frontier.png (PNG copy)>] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+<Figures/Profit_v_Volit.png, id=38, 566.5968pt x 383.9946pt>
+File: Figures/Profit_v_Volit.png Graphic file (type png)
+
+<use Figures/Profit_v_Volit.png>
+Package pdftex.def Info: Figures/Profit_v_Volit.png used on input line 161.
+(pdftex.def)             Requested size: 339.9607pt x 230.39853pt.
+ [8]
+<Figures/profit_v_beta.png, id=43, 526.1256pt x 351.2322pt>
+File: Figures/profit_v_beta.png Graphic file (type png)
+
+<use Figures/profit_v_beta.png>
+Package pdftex.def Info: Figures/profit_v_beta.png used on input line 168.
+(pdftex.def)             Requested size: 315.6778pt x 210.74094pt.
+
+<Figures/OptimalPort_EU.png, id=44, 598.8774pt x 378.213pt>
+File: Figures/OptimalPort_EU.png Graphic file (type png)
+
+<use Figures/OptimalPort_EU.png>
+Package pdftex.def Info: Figures/OptimalPort_EU.png used on input line 178.
+(pdftex.def)             Requested size: 449.15694pt x 283.65904pt.
+ [9 <./Figures/Profit_v_Volit.png> <./Figures/profit_v_beta.png>]
+<Figures/OptimalPort_profit.png, id=50, 598.8774pt x 378.213pt>
+File: Figures/OptimalPort_profit.png Graphic file (type png)
+
+<use Figures/OptimalPort_profit.png>
+Package pdftex.def Info: Figures/OptimalPort_profit.png used on input line 187.
+
+(pdftex.def)             Requested size: 449.15694pt x 283.65904pt.
+ [10 <./Figures/OptimalPort_EU.png>]
+<Figures/High_Risk.png, id=55, 443.7378pt x 272.217pt>
+File: Figures/High_Risk.png Graphic file (type png)
+
+<use Figures/High_Risk.png>
+Package pdftex.def Info: Figures/High_Risk.png used on input line 197.
+(pdftex.def)             Requested size: 443.73671pt x 272.21631pt.
+ [11 <./Figures/OptimalPort_profit.png>]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--206
+
+ []
+
+[12 <./Figures/High_Risk.png>]
+<Figures/assets.png, id=64, 605.1408pt x 945.7734pt>
+File: Figures/assets.png Graphic file (type png)
+ <use Figures/assets.png>
+Package pdftex.def Info: Figures/assets.png used on input line 213.
+(pdftex.def)             Requested size: 363.08728pt x 567.46843pt.
+
+Overfull \vbox (33.75508pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+[13 <./Figures/assets.png>] (./PortfolioManagmentinPython.aux) )
+(\end occurred inside a group at level 1)
 
-[4] <Figures/OptimalPort.png, id=27, 520.94624pt x 360.34625pt>
-File: Figures/OptimalPort.png Graphic file (type png)
-
-<use Figures/OptimalPort.png>
-Package pdftex.def Info: Figures/OptimalPort.png used on input line 119.
-(pdftex.def)             Requested size: 260.47249pt x 180.17268pt.
- [5 <./Figures/ProfitvVar.png> <./Figures/OptimalPort.png>] [6] (./PortfolioMan
-agmentinPython.aux) ) 
+### simple group (level 1) entered at line 142 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 2694 strings out of 493315
- 37338 string characters out of 6137904
- 109213 words of memory out of 5000000
- 6111 multiletter control sequences out of 15000+600000
+ 2708 strings out of 493315
+ 37852 string characters out of 6137904
+ 108173 words of memory out of 5000000
+ 6122 multiletter control sequences out of 15000+600000
  11602 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,16n,32p,884b,260s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr17.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb>
-Output written on PortfolioManagmentinPython.pdf (6 pages, 227905 bytes).
+ 38i,15n,32p,1184b,292s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17
+.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on PortfolioManagmentinPython.pdf (13 pages, 937166 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 106 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

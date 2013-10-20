@@ -4,6 +4,7 @@ import datetime
 import matplotlib.pylab as plt
 import statsmodels.api as sm
 from collections import defaultdict
+import pdb
 
 # define method for pulling Adj Close from Yahoo! Finance
 def Stock_Close(Ticker, YYYY, m, dd):
@@ -53,20 +54,17 @@ def regression(DataFrame, assets, back, forward):
 		projection[ass] = window[ass][1] + regr[ass]*30
 		profit[ass] = projection[ass] - DataFrame[ass][len(DataFrame.index) - 1]
 
-
-
 	return regr, window, projection, profit
 
 def Stock_stats(dataFrame, weights, assets, lam):
 	[m,n] = shape(dataFrame)
 	std = dataFrame.std()
 	corr = dataFrame.corr()
-	STD = [] 
+	STD = {}
 	buyin = []
 	current = []
 	ewma = {}
-	EWMA = []
-
+	EWMA = {}
 	# transform the dataFrame index to a series so regression will
 	# work
 
@@ -78,15 +76,14 @@ def Stock_stats(dataFrame, weights, assets, lam):
 			temp.append(( pow((dataFrame[ass][i] - dataFrame[ass].mean()), 2)
 			 * pow(lam, i)))
 			j = j+1
-		
-		buyin.append(dataFrame[ass][0] * weights[ass] )
-		STD.append([std[ass] * weights[ass]])
-		current.append([dataFrame[ass][m-1] * weights[ass]])
-		
+	
+		# buyin.append(dataFrame[ass][0] * weights[ass] )
+		STD[ass] = [std[ass] * weights[ass]]
+		# current.append([dataFrame[ass][m-1] * weights[ass]])
 		# sum the squared difference and compute EWMA over time for each asset
 		ewma[ass] = sqrt((1-lam) * sum(temp))
 		# take the weighted average of each asset, store in list and sum
-		EWMA.append(ewma[ass] * weights[ass])
+		EWMA[ass] = ewma[ass] * weights[ass]
 
 		
 	# # calculate EWMA as described by Minkah
@@ -104,10 +101,6 @@ def Stock_stats(dataFrame, weights, assets, lam):
 	# calculate the line of best fit for EWMA for each asset 
 
 	# calculate the EU using the tail side risks and mean values and volility
-
-
-	EWMA = sqrt(sum(EWMA))
-	STD = sum(STD)
 	
 	return STD, EWMA
 
@@ -120,15 +113,34 @@ def DirichletDistro(num, sum):
 	return list(D.reshape(-1)) 		#convert to list
 
 def utl(profit, EWMA, beta, delta, t): 
-	return 1 - exp( - beta * (profit / EWMA) * pow(delta, t) )
+	return 1 - exp( - beta * (profit / sqrt(EWMA)) * pow(delta, t) )
+
+def var(X, weights, assets):
+	corr = X.corr()
+	X = zeros((1, len(assets)))
+	j = 0
+
+	# first sort the weights dict by alphabet since corr matrix will be
+	sort = sorted(weights.keys())
+
+	for ass in sort:
+		X[0,j] = weights[ass]
+		j = j+1
+
+	var = dot(X, corr.as_matrix())
+	var = dot(var, X.transpose())
+
+	return var
 
 def main():
 	# define the desired portfolio characteristics
-	std_max = 250		# maximum standard deviation 
-	MAX_ITERS = 10 		# max number of iterations
+	std_max = .2		# maximum standard deviation 
+	MAX_ITERS = 200 	# max number of iterations
 	lam = .94  			# exponential decay number 
 	exit_date = 12  	# when you sell stocks (in months)
 	window_begin = 6    # how far back you want to window reg. (in months)
+	beta = .6			# personal risk adversion level
+	delta = .99			# discount factor 
 
 	assets = (['GOOGLE', 'APPLE', 'CAT', 'SPDR_GOLD', 'OIL',
 	 'NATURAL_GAS', 'USD', 'GOLDMANSACHS', 'DOMINION'])
@@ -152,12 +164,13 @@ def main():
 	X = DataFrame({'GOOGLE':GOOG, 'APPLE':AAPL, 'CAT':CAT, 'SPDR_GOLD':GOLD,
 	 'OIL':OIL, 'NATURAL_GAS':GAS, 'USD':USD, 'GOLDMANSACHS': GS, 'DOMINION':DOM})
 
-	best = zeros(((3+len(assets)), MAX_ITERS))
+	best = zeros(((4+len(assets)), MAX_ITERS))
 
 	print('Running monte carlo simulation')
 	for i in range(1, MAX_ITERS):
 		print('Percent Done: \t' + str(float(i)/float(MAX_ITERS)*100)+' %')
 		numWeight = DirichletDistro(len(assets),1)
+		EU = {}
 		
 		# check to make sure sum weights = 1
 		if int(sum(numWeight)) < 1.01: # account for floating point err
@@ -167,40 +180,40 @@ def main():
 			STD, EWMA = Stock_stats(X, weights, assets, lam)
 
 			# calculate price at future period 
-			regression, window, projection, profit = X, assets, window_begin, exit_date) 
+			regr, window, projection, profit = regression(X, assets, window_begin, exit_date)
+			# calculate expected utility
+			for ass in assets:
+				profit[ass] = profit[ass] * weights[ass]
+				EU[ass] = utl(profit[ass], EWMA[ass], beta, delta, exit_date*30)
 			
-			EU = utl(profit, )
-			
+			# calculate the variance of the portfolio
+			var_portfolio = var(X, weights, assets)
 
-			# check if the EWMA is above the specified limit
-			if best[1, i] >std_max:
-				best[:, i] = zeros(( (2+len(assets)) )) # drop the trial 
+			# # check if the EWMA is above the specified limit
+			if var_portfolio == std_max:
+				best[:, i] = zeros(( (4+len(assets)) )) # drop the trial 
 				# add more critera here...
-			else:
-				# store trial profit, EWMA, STD in column of best
-				best[0:3, i] = [profit, EWMA, STD]
-				best[3::, i] = numWeight
+			else:				# store trial profit, EWMA, STD in column of best
+				best[0:4, i] = [sum(EU.values()), var_portfolio, sum(EWMA.values()), sum(profit.values())]
+				sorted_assest = sorted(weights.keys())
+				print(sum(profit.values()))
+				j = 4
+				for ass in sorted_assest:
+					best[j, i] = weights[ass]
+					j = j+1 
 
 		else:
 			print('Sum of weights does not equal 1')
 
-	# # now that we have the monte carlo simulation setup, eliminate
-	# # all trials that do not meet critera
-	# for i in range(1, MAX_ITERS):
-	# 	if best[1, i] >std_max:
-	# 		best[:, i] = zeros(( (2+len(assets)) )) # drop the trial 
-	# 		# add more critera here...
-	# 	else:
-	# 		pass
 
 
 	maxP = max(best[0,:]) 
 	print( "The maximum profit to be made is: %f") % maxP
 	# find the column where the sum is equal to the max
 	opt = where(best[0,:] == maxP)
-	OptimalAllocation = dict(zip(assets, [float(xx) for xx in best[2:,opt]]))
+	# OptimalAllocation = dict(zip(assets, [float(xx) for xx in best[2:,opt]]))
 	print('\n The optimal asset allocation in the portfolio is:')
-	print(OptimalAllocation)
-	return X, best, OptimalAllocation, assets
+	# print(OptimalAllocation)
+	return X, best, assets, EU, regr, profit
 
 

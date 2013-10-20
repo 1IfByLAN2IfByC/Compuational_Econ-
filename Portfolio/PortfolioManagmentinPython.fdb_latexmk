@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1381513799 "PortfolioManagmentinPython.tex" "PortfolioManagmentinPython.pdf" "PortfolioManagmentinPython" 1381513800
+["pdflatex"] 1382305685 "PortfolioManagmentinPython.tex" "PortfolioManagmentinPython.pdf" "PortfolioManagmentinPython" 1382305688
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
@@ -18,7 +18,6 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/amsmath/amstext.sty" 1362954379 2637 846ebe982d3549c7ede7ce135456f54a ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls" 1254151887 20571 b8bd218bf2e18b4f5817ee643cd9c515 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/base/fixltx2e.sty" 1254151887 13911 4b3a73865fcc0c61d65cc1505cdda4e5 ""
-  "/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd" 1254151887 2109 c400bd6c901edc4a09e4d53fcffd3b3c ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/base/size12.clo" 1254151887 9053 a28d9b3c915d12545f3d5e7c4986be20 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/geometry/geometry.sty" 1284422013 40502 e003406220954b0716679d7928aedd8a ""
@@ -32,10 +31,16 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty" 1335995445 7075 bd0c34fbf1ae8fd1debd2a554e41b2d5 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1335995445 22417 c74ff4af6a1aa2b65d1924020edbbe11 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
-  "Figures/OptimalPort.png" 1381512412 70445 9ac7cc60822a8774ab279a41b01e6560 ""
-  "Figures/ProfitvVar.png" 1381511914 99263 073e84161cf125018385016178c78910 ""
-  "PortfolioManagmentinPython.aux" 1381513800 908 eb286c6355bf78d9b4ec74115deb9d32 ""
-  "PortfolioManagmentinPython.tex" 1381513799 10679 0555e30d6c99ca9c126850feef349201 ""
+  "Figures/EU_fn.png" 1382101731 51903 31bef6481521156d89fcf43a7b73cae1 ""
+  "Figures/Efficient_Frontier.png" 1382077291 13234 c985c306144cfe26167e91e2eb8c7f11 ""
+  "Figures/High_Risk.png" 1382106005 31176 2797ca6493b586a10cf82520da5ea32a ""
+  "Figures/OptimalPort_EU.png" 1382113779 248464 f5d75a596c715230180aab8d899540c9 ""
+  "Figures/OptimalPort_profit.png" 1382113794 223308 c8678b3d79ac49df763f84f8450bab83 ""
+  "Figures/Profit_v_Volit.png" 1382106511 155834 7e5cab2363f028649c9645cc01b6d260 ""
+  "Figures/assets.png" 1382108006 507407 e8213718e79ebbf263010ff364ce9312 ""
+  "Figures/profit_v_beta.png" 1382112103 58528 34d83f89fd5ea18822b0399e405bd30f ""
+  "PortfolioManagmentinPython.aux" 1382305687 2074 61eb25a8a7a6091341f1ef48f5c5ac4e ""
+  "PortfolioManagmentinPython.tex" 1382305642 16408 53a0d562fb17079e48ac99d8492cec5a ""
   (generated)
   "PortfolioManagmentinPython.aux"
   "PortfolioManagmentinPython.pdf"
