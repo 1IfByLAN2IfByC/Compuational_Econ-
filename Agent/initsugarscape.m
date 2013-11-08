@@ -28,6 +28,6 @@ maxrow = max(s);
 max(maxrow)
 
 %Display sugarscape
-figure(1);
-imagesc(s);
-axis square;
+% figure(1);
+% imagesc(s);
+% axis square;

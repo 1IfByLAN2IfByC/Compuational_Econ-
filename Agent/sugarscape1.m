@@ -5,9 +5,12 @@
 %Initialize model parameters
 nruns = 6; 
 size = 50; %even number
-metabolismv = 4;
-visionv = 6; %set always smaller than size
+metabolismv = 5;
+visionv = 7; %set always smaller than size
 maxsugar = 20;
+regenrate = 2;
+depleterate = 2; % larger => slower depletion
+deadzones = zeros(1, nruns);
 
 %Initialize sugarscape and display 
 s = initsugarscape(nruns, size, maxsugar);
@@ -20,7 +23,7 @@ a_str = initagents(size, s, visionv, metabolismv);
 for runs = 1:nruns;
 
     %Display agents locations 
-	dispagentloc(a_str, size, nruns, runs);
+	current_loc = dispagentloc(a_str, size, nruns, runs);
     
 	%Select agents in a random order and move around the sugarscape following rule M
     for i = randperm(size); 
@@ -43,5 +46,10 @@ for runs = 1:nruns;
             
         end           % for j
     end               % for i
+    
+    % update the new sugarscape after depletion and regeneration effects
+    s = metab(a_str, s, regenrate, depleterate, nruns, runs);
+    
+    deadzones(1,runs) = sum(s(:) <= 0 );
     
 end                   % for runs

@@ -1,6 +1,6 @@
 %Dispagentloc
 %Transform field "agent" from data structure into matrix and display agents locations    
-function dispagentloc(a_str, size, nruns, runs);
+ function  a = dispagentloc(a_str, size, nruns, runs);
 a = zeros(size); av = zeros(size); am = zeros(size);
 
 for i = 1:size;
@@ -14,8 +14,9 @@ for i = 1:size;
 end
 
 figure(2);
-subplot(ceil(sqrt(nruns)),ceil(sqrt(nruns)),runs), spy(a);
-axis square;
+subplot(ceil(sqrt(nruns)),ceil(sqrt(nruns)) - 1,runs), spy(a);
+axis square
+title('Agent Location')
 
 avgvision = sum(sum(av))/sum(sum(a))
 avgmetabolism = sum(sum(am))/sum(sum(a))
