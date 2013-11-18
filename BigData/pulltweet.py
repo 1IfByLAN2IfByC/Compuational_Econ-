@@ -8,6 +8,7 @@ import csv
 import codecs 
 from collections import defaultdict
 from dateutil import parser
+import redis as redis
 
 tokenizer = None 
 tagger = None 
@@ -17,6 +18,8 @@ def normalize(s):
 		return s.encode('utf8', 'ignore')
 	else:
 		return str(s)
+
+r_server = redis.redis("localhost")
 
 
 # write to a csv for classification 
@@ -56,6 +59,8 @@ class Streamer(TwythonStreamer):
 	def on_success(self, data):
 		if 'text' in data:
 			print data['text'].encode('utf-8')
+			r_server.rpush("incomingTweetsText", data['text'])
+			r_server.rpush("incomingTweetsTime"), str(datetime.now())
 
 	def on_error(self, status_code, data):
 		print(status_code)
@@ -63,6 +68,9 @@ class Streamer(TwythonStreamer):
 stream = Streamer(app_key, app_key_secret, access_token, access_token_secret)
 
 stream.statuses.filter( track= 'apple', language='en')
+
+for 
+
 
 
 

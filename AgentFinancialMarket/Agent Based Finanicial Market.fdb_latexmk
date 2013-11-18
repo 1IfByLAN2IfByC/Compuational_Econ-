@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1380304327 "PartialEQinMathematica.tex" "PartialEQinMathematica.pdf" "PartialEQinMathematica" 1384537674
+["pdflatex"] 1384541230 "Agent Based Finanicial Market.tex" "Agent Based Finanicial Market.pdf" "Agent Based Finanicial Market" 1384541231
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
@@ -31,17 +31,10 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty" 1335995445 7075 bd0c34fbf1ae8fd1debd2a554e41b2d5 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1335995445 22417 c74ff4af6a1aa2b65d1924020edbbe11 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
-  "Figures/CES.png" 1380172209 17510 56748d1c975237372a37984ccd4d93a7 ""
-  "Figures/CobbDouglas.png" 1380170075 30105 25af6b47f27c5f3234a37ad577855c4a ""
-  "Figures/LaborDemand.png" 1380249538 9332 7fd848c065bf713b2c53eaa1facd4ccf ""
-  "Figures/Leontief.png" 1380168085 8516 e481efe8a88965202f45e8fead1f4302 ""
-  "Figures/MarketEquilBeta.png" 1380303528 17396 12646e997ef9b5c6fdd212b649058768 ""
-  "Figures/MarketEquilT.png" 1380302830 17775 a7a5f0ab1ffa076a131cd18f2eafa6e8 ""
-  "Figures/Supply.png" 1380249455 8976 c0311dfc210f207739721a7dc59539fe ""
-  "Figures/x1Demand.png" 1380203323 8976 691a3daaecdb928a66f2cec3fea4be16 ""
-  "PartialEQinMathematica.aux" 1380304327 1510 d680a1cd1c9ef61a65f06aaf77853e4f ""
-  "PartialEQinMathematica.tex" 1380304326 8306 9a2ee08dc0affac68404ddbd8887d150 ""
+  "Agent Based Finanicial Market.aux" 1384541231 760 c7c030205214041202731b5db0f4357c ""
+  "Agent Based Finanicial Market.tex" 1384541137 7046 219975690082ebb2e62dbc30040cf929 ""
+  "market_flowchart.png" 1384541186 32616 e11531630f33208fdfe74892d0b240af ""
   (generated)
-  "PartialEQinMathematica.aux"
-  "PartialEQinMathematica.log"
-  "PartialEQinMathematica.pdf"
+  "Agent Based Finanicial Market.pdf"
+  "Agent Based Finanicial Market.aux"
+  "Agent Based Finanicial Market.log"
