@@ -48,5 +48,3 @@ def plotgrid(locations, cities, demand):
 	plt.title('European Cities')
 	plt.show()
 
-	return edges
-

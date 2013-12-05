@@ -39,8 +39,6 @@ growthRate = {'london': .73,
 			   'lisbon': .19,
 			   'warsaw': .08}
 
-
-
 # demand in billion kilowatt-hours (IEA, 2009)
 demand = { 'london': 325.81,
 		   'paris': 451.37,

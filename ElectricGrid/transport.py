@@ -10,17 +10,15 @@ cost = zeros((len(cities), len(cities) ))
 # convert dict to dataframe because python
 dist = DataFrame(dist)
 
-
-for i in range(0, len(cities)):
-	for keys, values in losses.iteritems():
-		print(dist[keys], losses[keys])
-		cost[:,i] = (1 - global_losses*dist[keys] - losses[keys])
+for keys, values in losses.iteritems():
+	print(dist[keys], losses[keys])
+	dist[keys]= (1 + global_losses*dist[keys] + losses[keys])
 
 		
 
 
 
 
-
+ 
 
 	return supply
