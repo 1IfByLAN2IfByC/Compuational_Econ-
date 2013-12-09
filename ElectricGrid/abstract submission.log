@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  9 DEC 2013 13:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  9 DEC 2013 13:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ElectricGrid.tex -recorder
-(./ElectricGrid.tex
+**"abstract submission.tex" -recorder
+(./abstract submission.tex
 LaTeX2e <2011/06/27>
 Babel <3.9f> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/article.cls
@@ -172,22 +172,22 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \ALC@tlm=\skip46
 \algorithmicindent=\skip47
 )
-(./ElectricGrid.aux)
-\openout1 = `ElectricGrid.aux'.
+(./abstract submission.aux)
+\openout1 = `"abstract submission.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 20.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -283,154 +283,28 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 23.
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omlzplm.fd
-File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
-)
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 23.
-
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omszplm.fd
-File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
-)
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 23.
-
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omxzplm.fd
-File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
-)
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 23.
-
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1zplm.fd
-File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-)
-LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 24.
- [1
-
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 44.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 23.
+[1
 
-<Figures/meantemp.png, id=13, 828.09375pt x 428.60126pt>
-File: Figures/meantemp.png Graphic file (type png)
-
-<use Figures/meantemp.png>
-Package pdftex.def Info: Figures/meantemp.png used on input line 49.
-(pdftex.def)             Requested size: 414.04587pt x 214.3001pt.
-
-<Figures/gases-co2.png, id=14, 420.57124pt x 414.54875pt>
-File: Figures/gases-co2.png Graphic file (type png)
-
-<use Figures/gases-co2.png>
-Package pdftex.def Info: Figures/gases-co2.png used on input line 58.
-(pdftex.def)             Requested size: 210.28511pt x 207.27386pt.
- [3 <./Figures/meantemp.png (PNG copy)>]
-LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 65.
-
-<Figures/captrade.png, id=18, 803.0pt x 602.25pt>
-File: Figures/captrade.png Graphic file (type png)
- <use Figures/captrade.png>
-Package pdftex.def Info: Figures/captrade.png used on input line 76.
-(pdftex.def)             Requested size: 321.1943pt x 240.89572pt.
-
-[4 <./Figures/gases-co2.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 91.
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsppl.fd
-File: omsppl.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
- [5 <./Figures/captrade.png>] <Figures/percentrenew.png, id=25, 803.0pt x 401.5
-pt>
-File: Figures/percentrenew.png Graphic file (type png)
-
-<use Figures/percentrenew.png>
-Package pdftex.def Info: Figures/percentrenew.png used on input line 104.
-(pdftex.def)             Requested size: 481.80373pt x 240.90184pt.
-
-Overfull \hbox (33.72882pt too wide) in paragraph at lines 104--105
- [] 
- []
-
-<Figures/sourceTWh.png, id=27, 953.5625pt x 687.56876pt>
-File: Figures/sourceTWh.png Graphic file (type png)
-
-<use Figures/sourceTWh.png>
-Package pdftex.def Info: Figures/sourceTWh.png used on input line 113.
-(pdftex.def)             Requested size: 476.78009pt x 343.78354pt.
-
-Overfull \hbox (28.70518pt too wide) in paragraph at lines 113--114
- [] 
- []
-
-[6 <./Figures/percentrenew.png>]
-Missing character: There is no â in font pplr7t!
-Missing character: There is no € in font pplr7t!
-Missing character: There is no ™ in font pplr7t!
- [7 <./Figures/sourceTWh.png (PNG copy)>]
-<Figures/co2fuel.png, id=36, 330.23375pt x 190.7125pt>
-File: Figures/co2fuel.png Graphic file (type png)
-
-<use Figures/co2fuel.png>
-Package pdftex.def Info: Figures/co2fuel.png used on input line 125.
-(pdftex.def)             Requested size: 247.67468pt x 143.03401pt.
- [8 <./Figures/co2fuel.png>]
-<Figures/costssource.png, id=41, 915.42pt x 248.93pt>
-File: Figures/costssource.png Graphic file (type png)
-
-<use Figures/costssource.png>
-Package pdftex.def Info: Figures/costssource.png used on input line 155.
-(pdftex.def)             Requested size: 457.70888pt x 124.46469pt.
-
-Overfull \hbox (9.63397pt too wide) in paragraph at lines 155--156
- [] 
- []
-
-<Figures/elec_load_demand.png, id=42, 521.95pt x 380.42125pt>
-File: Figures/elec_load_demand.png Graphic file (type png)
-
-<use Figures/elec_load_demand.png>
-Package pdftex.def Info: Figures/elec_load_demand.png used on input line 166.
-(pdftex.def)             Requested size: 391.46153pt x 285.31522pt.
- [9 <./Figures/costssource.png>] [10 <./Figures/elec_load_demand.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
-
- []
-
-[11] [12] <Figures/opttax.png, id=59, 463.7325pt x 309.155pt>
-File: Figures/opttax.png Graphic file (type png)
-
-<use Figures/opttax.png>
-Package pdftex.def Info: Figures/opttax.png used on input line 265.
-(pdftex.def)             Requested size: 278.24164pt x 185.49442pt.
- [13] [14 <./Figures/opttax.png>] [15] [16]
-(./ElectricGrid.aux) ) 
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./abstract submission.aux) ) 
 Here is how much of TeX's memory you used:
- 3138 strings out of 493315
- 43577 string characters out of 6137904
- 112982 words of memory out of 5000000
- 6501 multiletter control sequences out of 15000+600000
- 35723 words of font info for 92 fonts, out of 8000000 for 9000
+ 2923 strings out of 493315
+ 40225 string characters out of 6137904
+ 109982 words of memory out of 5000000
+ 6340 multiletter control sequences out of 15000+600000
+ 7223 words of font info for 21 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,8n,32p,1351b,301s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/
-8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></
-usr/local/texlive/2013/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/t
-exlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
-2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ElectricGrid.pdf (16 pages, 712377 bytes).
+ 38i,4n,32p,306b,147s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb
+8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on "abstract submission.pdf" (1 page, 48436 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 21 PDF objects out of 1000 (max. 8388607)
+ 14 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

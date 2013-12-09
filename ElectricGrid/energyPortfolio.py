@@ -101,10 +101,18 @@ for index, row in portfolio.iterrows():
 	portfolio['peakers'].ix[index] = backup_rate*(row['wind'] + row['offshore_wind']
 	 + row['solar'])
 	
+	print(index)
 	if row['nuclear'] + row['gas'] + row['coal'] < baseload:
 		portfolio = portfolio.drop(index)
+
+portfolio = portfolio.reset_index(drop=True)
+
+for index, row in portfolio.iterrows():
+	if row['hydro'] > .15:
+		portfolio = portfolio.drop(index)
+	
 print('Culling Finished')
-print('Elapsed time: ' + str(time.time() -t ))
+print('Elapsed timed: ' + str(time.time() -t ))
 
 # reset index after all the dropping
 portfolio = portfolio.reset_index(drop=True)
@@ -121,7 +129,7 @@ for XX in range(20,150, 20):
 	for keys, values in costMW.iteritems():
 		carbon_cost[keys] = costMW[keys] + (carbon_tax * (CO2_source[keys]/2000.0))
 		print(keys, costMW[keys], CO2_source[keys]/2000)
-		
+
 	## find costs for each portfolio
 	costs = zeros((len(portfolio)))
 	costs_wTax = zeros((len(portfolio)))
@@ -198,17 +206,17 @@ for XX in range(20,150, 20):
 	# portfolio_tax = portfolio_tax.reset_index(drop=True)
 
 	# normalize CO2 and cost by the specified maxes for plottitng
-	export = zeros((len(CO2), 4))
-	export[:,0] = CO2
-	export[:,1] = costs 
-	export[:,2] = CO2 / CO2_max
-	export[:,3] = costs / cost_max
+	# export = zeros((len(CO2), 4))
+	# export[:,0] = CO2
+	# export[:,1] = costs 
+	# export[:,2] = CO2 / CO2_max
+	# export[:,3] = costs / cost_max
 
-	export_tax = zeros((len(CO2_wTax), 4))
-	export_tax[:,0] = CO2_wTax
-	export_tax[:,1] = costs_wTax 
-	export_tax[:,2] = CO2_wTax / CO2_max
-	export_tax[:,3] = costs_wTax / cost_max
+	# export_tax = zeros((len(CO2_wTax), 4))
+	# export_tax[:,0] = CO2_wTax
+	# export_tax[:,1] = costs_wTax 
+	# export_tax[:,2] = CO2_wTax / CO2_max
+	# export_tax[:,3] = costs_wTax / cost_max
 
 	# export normalized data to specified file location
 	savetxt(export_location, export, delimiter=',')
